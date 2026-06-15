@@ -319,7 +319,7 @@ export default function App() {
               <ContactRow icon={<Phone size={18} />} label="Call" value="+91 89195 48831" />
               <ContactRow icon={<Mail size={18} />} label="Email" value="naveenkumarippili3@gmail.com" />
               <ContactRow icon={<MapPin size={18} />} label="Location" value="Palasa, Srikakulam, AP, India" />
-              <ContactRow icon={<Globe size={18} />} label="LinkedIn" value="linkedin.com/in/naveen-kumar-ippili-362067250/" />
+              <ContactRow icon={<Globe size={18} />} label="LinkedIn" value="View LinkedIn Profile" href="https://www.linkedin.com/in/naveen-kumar-ippili-362067250/" />
             </div>
           </div>
 
@@ -561,19 +561,36 @@ function ContactRow({
   icon,
   label,
   value,
+  href,
 }: {
   icon: React.ReactNode;
   label: string;
   value: string;
+  href?: string;
 }) {
   return (
     <div className="flex items-start gap-4">
       <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-white/15 ring-1 ring-white/25">
         {icon}
       </span>
-      <div className="min-w-0">
-        <p className="text-xs font-semibold uppercase tracking-wider text-white/70">{label}</p>
-        <p className="truncate text-sm font-medium">{value}</p>
+
+      <div className="min-w-0 flex-1">
+        <p className="text-xs font-semibold uppercase tracking-wider text-white/70">
+          {label}
+        </p>
+
+        {href ? (
+          <a
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm font-medium text-white underline underline-offset-4 hover:text-white/80"
+          >
+            {value}
+          </a>
+        ) : (
+          <p className="break-all text-sm font-medium">{value}</p>
+        )}
       </div>
     </div>
   );
