@@ -604,24 +604,3 @@ function Field({
   );
 }
 
-function SocialBtn({
-  href,
-  label,
-  children,
-}: {
-  href: string;
-  label: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <a
-      href={href}
-      aria-label={label}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="grid h-10 w-10 place-items-center rounded-full border border-border text-foreground/70 transition hover:border-primary hover:bg-gradient-brand hover:text-white"
-    >
-      {children}
-    </a>
-  );
-}
